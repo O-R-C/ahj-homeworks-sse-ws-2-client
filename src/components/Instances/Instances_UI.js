@@ -23,14 +23,30 @@ export default class Instances_UI extends BaseUI {
   createApp() {
     const app = Widget('Instances')
 
-    const btnAddInstance = getElement({
+    this.btnAddInstance = getElement({
       tag: 'button',
       classes: styles.btnAddInstance,
       textContent: 'Create new instance',
     })
 
-    app.append(btnAddInstance)
+    app.append(this.btnAddInstance)
 
     return app
+  }
+
+  addInstance(instance) {
+    this.#instances.append(instance)
+  }
+
+  clearInstances() {
+    this.#instances.innerHTML = ''
+  }
+
+  renderInstances(instances) {
+    console.log('🚀 ~ instances:', instances)
+    !instances.length && this.btnAddInstance.classList.add(styles.highlight)
+    instances.forEach((instance) => {
+      this.addInstance(instance)
+    })
   }
 }

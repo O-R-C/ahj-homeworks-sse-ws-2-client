@@ -87,6 +87,10 @@ export default class ServerApi {
    */
   #eventHandlers = {
     Instances: (data) => this.#handleInstances(data),
+    CREATED: (data) => firesEvent('CREATED', data),
+    STARTED: (data) => firesEvent('STARTED', data),
+    STOPPED: (data) => firesEvent('STOPPED', data),
+    REMOVED: (data) => firesEvent('REMOVED', data),
   }
 
   /**
@@ -97,7 +101,7 @@ export default class ServerApi {
    */
   #handleInstances = (instances) => {
     firesEvent('LOG', { id: 'all', INFO: 'Instances loaded' })
-    firesEvent('loadedInstances', instances)
+    firesEvent('LoadedInstances', instances)
   }
 
   /**

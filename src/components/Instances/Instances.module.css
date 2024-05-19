@@ -1,0 +1,32 @@
+@value values: '@css/variables.module.css';
+@value colorMain, colorSecondary, padding, radius, border from values;
+
+.btn-add-instance {
+  width: max-content;
+  padding: padding calc(padding * 2);
+
+  align-self: center;
+
+  border-radius: radius;
+  border: border;
+  cursor: pointer;
+}
+
+.highlight {
+  animation: glowing 10s infinite;
+}
+
+@keyframes glowing {
+  0% {
+    background-color: inherit;
+    box-shadow: 0 0 3px inherit;
+  }
+  50% {
+    background-color: inherit;
+    box-shadow: 0 0 3px inherit;
+  }
+  100% {
+    background-color: #e1eaff;
+    box-shadow: 0 0 3px #e1eaff;
+  }
+}

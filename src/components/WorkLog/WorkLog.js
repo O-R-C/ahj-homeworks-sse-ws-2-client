@@ -44,7 +44,6 @@ export default class WorkLog {
    * @return {void} No return value.
    */
   #handleLog = (e) => {
-    const { payload } = e.detail
-    this.#ui.addLog(payload)
+    this.#ui.addLog(e.detail.payload)
   }
 }
