@@ -70,13 +70,15 @@ export default class Instances {
    */
   #handleClick = (e) => {
     const btn = e.target.closest('button')
-    console.log('🚀 ~ btn:', btn)
+
     if (!btn) return
 
     this.#isBtnAdd(btn) && firesEvent('CREATE', '')
     this.#isBtnStart(btn) && firesEvent('START', { id: this.#getInstanceId(btn) })
     this.#isBtnStop(btn) && firesEvent('STOP', { id: this.#getInstanceId(btn) })
     this.#isBtnRemove(btn) && firesEvent('REMOVE', { id: this.#getInstanceId(btn) })
+
+    this.#ui.showProcessing()
   }
 
   /**

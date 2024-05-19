@@ -23,6 +23,7 @@ export default class Instances_UI extends BaseUI {
 
   createApp() {
     const app = Widget('Instances')
+    app.classList.add(styles.instances)
 
     this.btnAddInstance = getElement({
       tag: 'button',
@@ -41,13 +42,24 @@ export default class Instances_UI extends BaseUI {
     newInstance.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }
 
-  clearInstances() {
+  #clearInstances() {
     this.#instances.innerHTML = ''
   }
 
   renderInstances(instances) {
+    this.#clearInstances()
+    this.hideProcessing()
+
     instances.forEach((instance) => {
       this.addInstance(instance)
     })
+  }
+
+  showProcessing() {
+    this.app.classList.add(styles.processing)
+  }
+
+  hideProcessing() {
+    this.app.classList.remove(styles.processing)
   }
 }
