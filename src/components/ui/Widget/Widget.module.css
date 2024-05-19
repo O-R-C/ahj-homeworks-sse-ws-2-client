@@ -1,0 +1,38 @@
+@value values: '@css/variables.module.css';
+@value colorMain, colorSecondary, padding, radius, border from values;
+
+.widget {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: calc(padding * 2);
+  padding: padding;
+  border-radius: radius;
+  border: border;
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: inherit;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: #b7b7b7;
+  }
+}
+
+.widget-header {
+  margin: 0;
+  color: colorMain;
+  font-weight: normal;
+}
+
+.widget-body {
+  display: flex;
+  flex-direction: column;
+  gap: padding;
+}

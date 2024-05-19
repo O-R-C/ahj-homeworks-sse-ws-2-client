@@ -1,0 +1,26 @@
+@value values: '@css/variables.module.css';
+@value padding, colorSecondary from values;
+
+.log {
+  display: flex;
+  flex-direction: column;
+  gap: calc(padding * 0.5);
+}
+
+.log:nth-child(n + 2) {
+  border-top: 1px solid colorSecondary;
+  padding-top: padding;
+}
+
+.time {
+  opacity: 0.8;
+  margin-bottom: calc(padding * 0.2);
+}
+
+.id::before {
+  content: 'Server: ';
+}
+
+.info::before {
+  content: 'INFO: ';
+}

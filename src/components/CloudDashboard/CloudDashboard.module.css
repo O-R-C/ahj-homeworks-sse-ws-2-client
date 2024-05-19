@@ -1,0 +1,17 @@
+@value values: '@css/variables.module.css';
+@value colorMain, colorSecondary, padding, radius, border from values;
+
+.cloudDashboard {
+  min-height: 500px;
+  padding: padding calc(padding * 2);
+  display: flex;
+  gap: calc(padding * 4);
+}
+
+.instancesListContainer {
+  flex: 1;
+}
+
+.workLogContainer {
+  flex: 1;
+}

@@ -54,7 +54,7 @@ export default class ServerApi {
    * @private
    */
   #onOpen = () => {
-    firesEvent('connected', '')
+    firesEvent('LOG', { id: 'all', INFO: 'Server connected' })
   }
 
   /**
@@ -86,42 +86,18 @@ export default class ServerApi {
    * @private
    */
   #eventHandlers = {
-    UsersList: (usersList) => this.#handleUsersList(usersList),
-    Chat: (chat) => this.#handleChat(chat),
-    Message: (message) => this.#handleMessage(message),
+    Instances: (data) => this.#handleInstances(data),
   }
 
   /**
-   * Handles the 'UsersList' event
+   * Handles the 'Instances' event
    *
-   * @param {Array<string>} usersList - List of users
+   * @param {Array} instances - Array of instances
    * @private
-   * @fires 'loadedUserList'
    */
-  #handleUsersList = (usersList) => {
-    firesEvent('loadedUserList', usersList)
-  }
-
-  /**
-   * Handles the 'Chat' event
-   *
-   * @param {Object} chat - Chat message
-   * @private
-   * @fires 'loadedChat'
-   */
-  #handleChat = (chat) => {
-    firesEvent('loadedChat', chat)
-  }
-
-  /**
-   * Handles the 'Message' event
-   *
-   * @param {Object} message - Message
-   * @private
-   * @fires 'loadedMessage'
-   */
-  #handleMessage = (message) => {
-    firesEvent('loadedMessage', message)
+  #handleInstances = (instances) => {
+    firesEvent('LOG', { id: 'all', INFO: 'Instances loaded' })
+    firesEvent('loadedInstances', instances)
   }
 
   /**
@@ -129,7 +105,6 @@ export default class ServerApi {
    *
    * @param {string} event - Event name
    * @param {Object} payload - Event payload
-   * @private
    */
   send = (event, payload) => {
     this.#ws.send(JSON.stringify({ event, payload }))
