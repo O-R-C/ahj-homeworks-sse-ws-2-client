@@ -2,6 +2,7 @@ import BaseUI from '@/js/Classes/BaseUI'
 import Widget from '../ui/Widget/Widget'
 import getElement from '@/js/getElement'
 import styles from './Instances.module.css'
+import Instance from '../ui/Instance/Instance'
 
 export default class Instances_UI extends BaseUI {
   #instances
@@ -35,7 +36,9 @@ export default class Instances_UI extends BaseUI {
   }
 
   addInstance(instance) {
-    this.#instances.append(instance)
+    const newInstance = Instance(instance)
+    this.#instances.append(newInstance)
+    newInstance.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }
 
   clearInstances() {
@@ -43,8 +46,6 @@ export default class Instances_UI extends BaseUI {
   }
 
   renderInstances(instances) {
-    console.log('🚀 ~ instances:', instances)
-    !instances.length && this.btnAddInstance.classList.add(styles.highlight)
     instances.forEach((instance) => {
       this.addInstance(instance)
     })

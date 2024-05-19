@@ -7,13 +7,15 @@
 
   align-self: center;
 
+  font-size: 14px;
+
   border-radius: radius;
   border: border;
   background: inherit;
   cursor: pointer;
 }
 
-.highlight {
+.btn-add-instance:hover {
   animation: glowing 10s infinite;
 }
 
@@ -26,8 +28,12 @@
     background-color: inherit;
     box-shadow: 0 0 3px inherit;
   }
-  100% {
+  75% {
     background-color: #e1eaff;
     box-shadow: 0 0 3px #e1eaff;
+  }
+  100% {
+    background-color: inherit;
+    box-shadow: 0 0 3px inherit;
   }
 }

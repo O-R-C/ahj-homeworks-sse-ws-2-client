@@ -1,0 +1,78 @@
+@value values: '@css/variables.module.css';
+@value colorMain, colorSecondary, padding, radius, border from values;
+
+.instance {
+  padding: padding;
+
+  display: flex;
+  flex-direction: column;
+  gap: padding;
+
+  border-radius: radius;
+  border: border;
+}
+
+.id {
+  font-weight: bold;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: padding;
+}
+
+.status::before {
+  content: 'Status: ';
+  display: block;
+  width: 60px;
+}
+
+.status::after {
+  content: 'Stopped';
+  padding-left: calc(padding * 3);
+  font-weight: bold;
+
+  background: 3px center / contain url('@images/stopped.png') no-repeat;
+}
+
+.running::after {
+  content: 'Running';
+  background-image: url('@images/started.png');
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: padding;
+}
+
+.actions::before {
+  content: 'Actions: ';
+  display: block;
+  width: 60px;
+}
+
+.controls {
+  display: flex;
+  gap: padding;
+
+  & button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: 0 center / contain no-repeat;
+    border: 0;
+    cursor: pointer;
+  }
+
+  & .btnStart {
+    background-image: url('@images/start.png');
+  }
+  & .btnStop {
+    background-image: url('@images/stop.png');
+  }
+  & .btnRemove {
+    background-image: url('@images/remove.png');
+  }
+}

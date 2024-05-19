@@ -62,7 +62,9 @@ export default class WorkLog_UI extends BaseUI {
    * @param {Object} log - The log to be added.
    */
   addLog(log) {
-    this.#logContent.append(Log(log))
+    const newLog = Log(log)
+    this.#logContent.append(newLog)
+    newLog.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }
 
   /**

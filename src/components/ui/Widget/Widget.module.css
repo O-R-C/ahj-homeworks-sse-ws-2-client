@@ -3,6 +3,7 @@
 
 .widget {
   height: 100%;
+  max-height: 80vh;
 
   display: flex;
   flex-direction: column;
@@ -10,19 +11,6 @@
   padding: padding;
   border-radius: radius;
   border: border;
-
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-track {
-    background: inherit;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 0.5rem;
-    background-color: #b7b7b7;
-  }
 }
 
 .widget-header {
@@ -35,4 +23,20 @@
   display: flex;
   flex-direction: column;
   gap: padding;
+
+  overflow-y: auto;
+  /* scrollbar-color: #b7b7b7 #f1f1f1; */
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: inherit;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 0.5rem;
+    border-radius: 0.5rem;
+    border: 6px solid white;
+    background-color: #b7b7b7;
+  }
 }
