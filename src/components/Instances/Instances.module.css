@@ -9,6 +9,7 @@
 
   border-radius: radius;
   border: border;
+  background: inherit;
   cursor: pointer;
 }
 

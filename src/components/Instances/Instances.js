@@ -72,9 +72,21 @@ export default class Instances {
     const btn = e.target.closest('button')
     if (!btn) return
 
+    this.#isBtnAdd(btn) && firesEvent('CREATE', '')
     this.#isBtnStart(btn) && firesEvent('START', { id: btn.dataset.id })
     this.#isBtnStop(btn) && firesEvent('STOP', { id: btn.dataset.id })
     this.#isBtnRemove(btn) && firesEvent('REMOVE', { id: btn.dataset.id })
+  }
+
+  /**
+   * Checks if the given button is a add button.
+   *
+   * @private
+   * @param {HTMLElement} btn - The button to check.
+   * @returns {boolean} - True if the button is a add button, false otherwise.
+   */
+  #isBtnAdd(btn) {
+    return btn.closest('button[class^="btn-add"]')
   }
 
   /**

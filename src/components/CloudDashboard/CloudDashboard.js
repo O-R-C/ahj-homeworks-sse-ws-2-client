@@ -65,5 +65,54 @@ export default class CloudDashboard {
    *
    * @private
    */
-  #addListeners() {}
+  #addListeners() {
+    document.addEventListener('CREATE', this.#handleCREATE)
+    document.addEventListener('START', this.#handleSTART)
+    document.addEventListener('STOP', this.#handleSTOP)
+    document.addEventListener('REMOVE', this.#handleREMOVE)
+  }
+
+  /**
+   * Handles the 'CREATE' event.
+   *
+   * @private
+   * @param {CustomEvent} e - The 'CREATE' event.
+   */
+  #handleCREATE = (e) => {
+    console.log('🚀 ~ e:', e)
+    this.#ws.send('CREATE', e.detail.payload)
+  }
+
+  /**
+   * Handles the 'START' event.
+   *
+   * @private
+   * @param {CustomEvent} e - The 'START' event.
+   */
+  #handleSTART = (e) => {
+    console.log('🚀 ~ e:', e)
+    this.#ws.send('START', e.detail.payload)
+  }
+
+  /**
+   * Handles the 'STOP' event.
+   *
+   * @private
+   * @param {CustomEvent} e - The 'STOP' event.
+   */
+  #handleSTOP = (e) => {
+    console.log('🚀 ~ e:', e)
+    this.#ws.send('STOP', e.detail.payload)
+  }
+
+  /**
+   * Handles the 'REMOVE' event.
+   *
+   * @private
+   * @param {CustomEvent} e - The 'REMOVE' event.
+   */
+  #handleREMOVE = (e) => {
+    console.log('🚀 ~ e:', e)
+    this.#ws.send('REMOVE', e.detail.payload)
+  }
 }

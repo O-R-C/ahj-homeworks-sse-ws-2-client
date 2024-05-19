@@ -87,10 +87,11 @@ export default class ServerApi {
    */
   #eventHandlers = {
     Instances: (data) => this.#handleInstances(data),
-    CREATED: (data) => firesEvent('CREATED', data),
-    STARTED: (data) => firesEvent('STARTED', data),
-    STOPPED: (data) => firesEvent('STOPPED', data),
-    REMOVED: (data) => firesEvent('REMOVED', data),
+    Processing: (data) => firesEvent('LOG', { id: data.id, INFO: data.INFO }),
+    CREATED: (data) => this.#handleCreated(data),
+    STARTED: (data) => this.#handleStarted(data),
+    STOPPED: (data) => this.#handleStopped(data),
+    REMOVED: (data) => this.#handleRemoved(data),
   }
 
   /**
@@ -102,6 +103,50 @@ export default class ServerApi {
   #handleInstances = (instances) => {
     firesEvent('LOG', { id: 'all', INFO: 'Instances loaded' })
     firesEvent('LoadedInstances', instances)
+  }
+
+  /**
+   * Handles the 'CREATED' event
+   *
+   * @param {Object} data - Instance data
+   * @private
+   */
+  #handleCreated = (data) => {
+    firesEvent('LOG', { id: data.id, INFO: 'Instance created' })
+    firesEvent('CREATED', data)
+  }
+
+  /**
+   * Handles the 'STARTED' event
+   *
+   * @param {Object} data - Instance data
+   * @private
+   */
+  #handleStarted = (data) => {
+    firesEvent('LOG', { id: data.id, INFO: 'Instance started' })
+    firesEvent('STARTED', data)
+  }
+
+  /**
+   * Handles the 'STOPPED' event
+   *
+   * @param {Object} data - Instance data
+   * @private
+   */
+  #handleStopped = (data) => {
+    firesEvent('LOG', { id: data.id, INFO: 'Instance stopped' })
+    firesEvent('STOPPED', data)
+  }
+
+  /**
+   * Handles the 'REMOVED' event
+   *
+   * @param {Object} data - Instance data
+   * @private
+   */
+  #handleRemoved = (data) => {
+    firesEvent('LOG', { id: data.id, INFO: 'Instance removed' })
+    firesEvent('REMOVED', data)
   }
 
   /**
