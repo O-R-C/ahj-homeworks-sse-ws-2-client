@@ -66,13 +66,13 @@
     cursor: pointer;
   }
 
-  & .btnStart {
+  & .btn-start {
     background-image: url('@images/start.png');
   }
-  & .btnStop {
+  & .btn-stop {
     background-image: url('@images/stop.png');
   }
-  & .btnRemove {
+  & .btn-remove {
     background-image: url('@images/remove.png');
   }
 }

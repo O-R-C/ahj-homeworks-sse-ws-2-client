@@ -92,6 +92,7 @@ export default class ServerApi {
     STARTED: (data) => this.#handleStarted(data),
     STOPPED: (data) => this.#handleStopped(data),
     REMOVED: (data) => this.#handleRemoved(data),
+    ERROR: (data) => this.#handleError(data),
   }
 
   /**
@@ -147,6 +148,10 @@ export default class ServerApi {
   #handleRemoved = (data) => {
     firesEvent('LOG', { id: data.id, INFO: 'Instance removed' })
     firesEvent('REMOVED', data)
+  }
+
+  #handleError = (data) => {
+    firesEvent('LOG', { id: data.id, INFO: data.INFO })
   }
 
   /**

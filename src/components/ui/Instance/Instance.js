@@ -5,6 +5,7 @@ export const Instance = ({ id, status }) => {
   const instance = getElement({
     tag: 'div',
     classes: styles.instance,
+    data: { id },
   })
 
   const idElement = getElement({

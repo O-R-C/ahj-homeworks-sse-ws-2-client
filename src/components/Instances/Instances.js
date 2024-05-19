@@ -70,12 +70,13 @@ export default class Instances {
    */
   #handleClick = (e) => {
     const btn = e.target.closest('button')
+    console.log('🚀 ~ btn:', btn)
     if (!btn) return
 
     this.#isBtnAdd(btn) && firesEvent('CREATE', '')
-    this.#isBtnStart(btn) && firesEvent('START', { id: btn.dataset.id })
-    this.#isBtnStop(btn) && firesEvent('STOP', { id: btn.dataset.id })
-    this.#isBtnRemove(btn) && firesEvent('REMOVE', { id: btn.dataset.id })
+    this.#isBtnStart(btn) && firesEvent('START', { id: this.#getInstanceId(btn) })
+    this.#isBtnStop(btn) && firesEvent('STOP', { id: this.#getInstanceId(btn) })
+    this.#isBtnRemove(btn) && firesEvent('REMOVE', { id: this.#getInstanceId(btn) })
   }
 
   /**
@@ -140,5 +141,9 @@ export default class Instances {
    */
   #handleCREATED = (e) => {
     this.#ui.addInstance(e.detail.payload)
+  }
+
+  #getInstanceId(btn) {
+    return btn.closest('div[class^="instance"]').dataset.id
   }
 }
