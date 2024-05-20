@@ -80,7 +80,6 @@ export default class CloudDashboard {
    * @param {CustomEvent} e - The 'CREATE' event.
    */
   #handleCREATE = (e) => {
-    console.log('🚀 ~ e:', e)
     this.#ws.send('CREATE', e.detail.payload)
   }
 
@@ -91,7 +90,6 @@ export default class CloudDashboard {
    * @param {CustomEvent} e - The 'START' event.
    */
   #handleSTART = (e) => {
-    console.log('🚀 ~ e:', e)
     this.#ws.send('START', e.detail.payload)
   }
 
@@ -102,7 +100,6 @@ export default class CloudDashboard {
    * @param {CustomEvent} e - The 'STOP' event.
    */
   #handleSTOP = (e) => {
-    console.log('🚀 ~ e:', e)
     this.#ws.send('STOP', e.detail.payload)
   }
 
@@ -113,7 +110,6 @@ export default class CloudDashboard {
    * @param {CustomEvent} e - The 'REMOVE' event.
    */
   #handleREMOVE = (e) => {
-    console.log('🚀 ~ e:', e)
     this.#ws.send('REMOVE', e.detail.payload)
   }
 
@@ -123,7 +119,7 @@ export default class CloudDashboard {
    * @private
    * @param {CustomEvent} e - The 'disconnected' event.
    */
-  #handleDisconnected = (e) => {
+  #handleDisconnected = () => {
     this.#ui.openDialog('Connection error, please reload the page and try again')
   }
 }

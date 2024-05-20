@@ -12,10 +12,6 @@
   border: border;
 }
 
-.id {
-  /* font-weight: bold; */
-}
-
 .status {
   display: flex;
   align-items: center;
