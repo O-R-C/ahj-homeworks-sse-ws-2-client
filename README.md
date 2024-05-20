@@ -1,8 +1,8 @@
-# Chat - client
+# Cloud Dashboard - client
 
 [![Netology AHJ](https://github.com/O-R-C/ahj-homeworks-sse-ws-2-client/actions/workflows/web.yml/badge.svg)](https://github.com/O-R-C/ahj-homeworks-sse-ws-2-client/actions/workflows/web.yml)
 
 [github-pages](https://o-r-c.github.io/ahj-homeworks-sse-ws-2-client/)                                                                                                 
 ### Operation diagram
 
-![arh](https://www.plantuml.com/plantuml/png/pPPVJzim5CNVyodk-WGI-zFshLedMEbG9KXHwRQNFM3YksAHs97jK6qettstJkQQuQ48XCf39IkwlkVSStzHUcWiqxOgyiJS25aopGhGQ4eb3PwXCMo5dp5NwoEjrHgihZ1vKsgsAXXOLB-R9wooIbR55Uea6O_XOdcqMC9ud5nBPH7KBMhuhlHDhbOmWbmOYn9-IEYTpazwoNi8ocQI_CWCpVt2oM9wj9mUzpPdrzsVv-VdxNanFPj_Qy-JN6GtxdIg64VkszAp-u9KYTB6rBPYNYhGSKSkJAQanCmYfmTk-CayJQUJvMoURX9estzy-makK9CWAQqDjBU4aadC2_KjcSskuQx9w00uimngiXwDb9KbIWwdQhMtATnFMYrIzJqDLGYvsYRyCigFDtsuZuDWvVN_MF0wBCz1OuQt0damYSlTBSrH5siHkl0R9iNMPBYVJ2EZ1XBN_dxOqzUjKABULCvuSkTUeneYmPzhHGOCPK_AWe_eHqEdN-OZk5nWXk8MEJbgH3DL54potYNKBxuVFuX1knG5gih2u0COpA9LFijtPMMkzy9uzWJVtq_kIAa6J_psPllsFXY_cPb3tLnrRydV84VUoYueRHt76yV03DDeD1oKYwzfEajFEb99rQGeU1nB5uo_2xFZw9P-2ibzKOjb_nbSNZZLru6bmwGVGynzScA8EViUiNx8M7_Na3dFdI3JbTmk_keNxTxHrNxzEjArgNuKBrK-YQx1i-XIvMk2Qn27o-KSWqkLfOTh4C8rs3rSvBaBN7wA263DNvsEV3N5Zn2ciQ06Js9i-0p65axsDL4sZ5BcyejGvlnxoeOXPSDTK-OyTwACOuuM_uNiaEIg8ly3)
+![arh](https://www.plantuml.com/plantuml/png/nPL1Rzf048Nl_XLJJgsKgafoYqeLIcY4H6naQ7lf8HllY5ZOkzRk6jGY__SEwvNjD5ja2GKEI8CPl_TslZ6-rOOfK-PPeDUfA9XYEIZKXHGQ7r1hjiAlcCdjI2cv1QDA3DuLYgro1WRbd_eAAuqKPVw4AWY6GrWiH_4IXiFWMKY383UeuATKwqoku0QoL1iKy4l0O1RT3u9Fq6cR2ieZ4jGl6yVnPBISt0tsjLLlwcW-TtKyUOX-k7gSfSdQLZF9EF96bgwzDAHE5CRdrferLXqVM_9K9r88J0nokc0FFux2S39UJgDmFm4d__dZ5rYW8aDoscfmTwLI1Buif5imapp3hfxH1N1c65GKtJjILXGeECpawls-yKFWlCYrqTJKaOfLE-6tSJui-fh7HGTvzVzTS3uioq1XWfiKUVkxdNiDpMsTJwARmX4cHnUoooTHo4X0uBQvFzZPnwG2ps3dIfA1fjcISiflw4E72hz5D_0OKzPqWvmSQz54vZaJVF08rTlCVqTVAsZMhZsLUuHUPQo3SQZEimykbb_Ojm9TBBM7nHz_3yDfUD-JFtMJOyhz2s1PD_V2zCxXlpo2_y9gdWJ_fO-__LFsyRV1piVVnUh1NvMYPVBqcx1OyEuLq1FylliWULbum5yT1LuMf-5-vUFkvkFZBelYdDmfLY_kBgYFVVqgxec-RZu0Ns5E0XxyrqVWZwteQHRWshS0zP0y2s2JdMi178vU2y0nGuF_yhybkpBF_W80)
