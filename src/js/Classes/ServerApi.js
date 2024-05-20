@@ -24,6 +24,7 @@ export default class ServerApi {
    * @return {void} No return value.
    */
   init() {
+    firesEvent('LOG', { id: 'all', INFO: 'Trying to connect' })
     this.#createWS()
     this.#addListeners()
   }
