@@ -70,6 +70,7 @@ export default class CloudDashboard {
     document.addEventListener('START', this.#handleSTART)
     document.addEventListener('STOP', this.#handleSTOP)
     document.addEventListener('REMOVE', this.#handleREMOVE)
+    document.addEventListener('disconnected', this.#handleDisconnected)
   }
 
   /**
@@ -114,5 +115,15 @@ export default class CloudDashboard {
   #handleREMOVE = (e) => {
     console.log('🚀 ~ e:', e)
     this.#ws.send('REMOVE', e.detail.payload)
+  }
+
+  /**
+   * Handles the 'disconnected' event.
+   *
+   * @private
+   * @param {CustomEvent} e - The 'disconnected' event.
+   */
+  #handleDisconnected = (e) => {
+    this.#ui.openDialog('Connection error, please reload the page and try again')
   }
 }

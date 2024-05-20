@@ -159,6 +159,7 @@ export default class Instances_UI extends BaseUI {
    * @param {string} id - The id of the instance to hide the processing indicator for.
    */
   hideProcessing(id = '') {
-    this.#btnAddInstance.classList.remove(styles.processing)
+    const element = id ? this.#findInstance(id) : this.#btnAddInstance
+    element.classList.remove(styles.processing)
   }
 }

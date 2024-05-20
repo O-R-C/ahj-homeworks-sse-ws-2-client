@@ -17,3 +17,12 @@
 .workLogContainer {
   flex: 1;
 }
+
+.dialog {
+  border: none;
+  border-radius: radius;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}

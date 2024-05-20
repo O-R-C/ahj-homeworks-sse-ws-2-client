@@ -52,6 +52,11 @@ export default class CloudDashboard_UI extends BaseUI {
       classes: styles.cloudDashboard,
     })
 
+    this.dialog = getElement({
+      tag: 'dialog',
+      classes: styles.dialog,
+    })
+
     this.instancesListContainer = getElement({
       tag: 'div',
       classes: styles.instancesListContainer,
@@ -62,8 +67,18 @@ export default class CloudDashboard_UI extends BaseUI {
       classes: styles.workLogContainer,
     })
 
-    app.append(this.instancesListContainer, this.workLogContainer)
+    app.append(this.dialog, this.instancesListContainer, this.workLogContainer)
 
     return app
+  }
+
+  /**
+   * Opens the dialog.
+   *
+   * @param {string} message - The message to be displayed in the dialog.
+   */
+  openDialog(message) {
+    this.dialog.textContent = message
+    this.dialog.showModal()
   }
 }

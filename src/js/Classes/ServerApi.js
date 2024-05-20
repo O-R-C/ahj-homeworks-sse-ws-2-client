@@ -102,7 +102,8 @@ export default class ServerApi {
    * @private
    */
   #handleInstances = (instances) => {
-    firesEvent('LOG', { id: 'all', INFO: 'Instances loaded' })
+    instances.length && firesEvent('LOG', { id: 'all', INFO: 'Instances loaded' })
+    !instances.length && firesEvent('LOG', { id: 'all', INFO: 'No instances found' })
     firesEvent('LoadedInstances', instances)
   }
 
