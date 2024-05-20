@@ -2,6 +2,8 @@
 @value colorMain, colorSecondary, padding, radius, border from values;
 
 .cloudDashboard {
+  width: 1000px;
+  margin: 0 auto;
   min-height: 500px;
   padding: padding calc(padding * 2);
   display: flex;

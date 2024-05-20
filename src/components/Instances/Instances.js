@@ -49,6 +49,9 @@ export default class Instances {
     this.#ui.app.addEventListener('click', this.#handleClick)
     document.addEventListener('LoadedInstances', this.#handleLoadedInstances)
     document.addEventListener('CREATED', this.#handleCREATED)
+    document.addEventListener('STARTED', this.#handleSTARTED)
+    document.addEventListener('STOPPED', this.#handleSTOPPED)
+    document.addEventListener('REMOVED', this.#handleREMOVED)
   }
 
   /**
@@ -73,12 +76,31 @@ export default class Instances {
 
     if (!btn) return
 
-    this.#isBtnAdd(btn) && firesEvent('CREATE', '')
-    this.#isBtnStart(btn) && firesEvent('START', { id: this.#getInstanceId(btn) })
-    this.#isBtnStop(btn) && firesEvent('STOP', { id: this.#getInstanceId(btn) })
-    this.#isBtnRemove(btn) && firesEvent('REMOVE', { id: this.#getInstanceId(btn) })
+    if (this.#isBtnAdd(btn)) {
+      firesEvent('CREATE', '')
+      this.#ui.showProcessing()
+      return
+    }
 
-    this.#ui.showProcessing()
+    const instanceId = this.#getInstanceId(btn)
+
+    if (this.#isBtnStart(btn)) {
+      firesEvent('START', { id: instanceId })
+      this.#ui.showProcessing(instanceId)
+      return
+    }
+
+    if (this.#isBtnStop(btn)) {
+      firesEvent('STOP', { id: instanceId })
+      this.#ui.showProcessing(instanceId)
+      return
+    }
+
+    if (this.#isBtnRemove(btn)) {
+      firesEvent('REMOVE', { id: instanceId })
+      this.#ui.showProcessing(instanceId)
+      return
+    }
   }
 
   /**
@@ -146,7 +168,59 @@ export default class Instances {
     this.#ui.hideProcessing()
   }
 
+  /**
+   * Event listener for 'STARTED' event.
+   *
+   * @private
+   * @param {Event} event - The 'STARTED' event.
+   */
+  #handleSTARTED = (e) => {
+    const id = this.#getServerId(e.detail)
+    this.#ui.toggleStatusInstance({ id, status: 'started' })
+    this.#ui.hideProcessing()
+  }
+
+  /**
+   * Event listener for 'STOPPED' event.
+   *
+   * @private
+   * @param {Event} event - The 'STOPPED' event.
+   */
+  #handleSTOPPED = (e) => {
+    const id = this.#getServerId(e.detail)
+    this.#ui.toggleStatusInstance({ id, status: 'stopped' })
+    this.#ui.hideProcessing()
+  }
+
+  /**
+   * Event listener for 'REMOVED' event.
+   *
+   * @private
+   * @param {Event} event - The 'REMOVED' event.
+   */
+  #handleREMOVED = (e) => {
+    const id = this.#getServerId(e.detail)
+    this.#ui.removeInstance({ id })
+    this.#ui.hideProcessing()
+  }
+
+  /**
+   * Gets the ID of the instance from the given button.
+   * @param {HTMLElement} btn - The button to get the ID from.
+   * @returns {string} - The ID of the instance.
+   * @private
+   */
   #getInstanceId(btn) {
     return btn.closest('div[class^="instance"]').dataset.id
+  }
+
+  /**
+   * Gets the ID of the server from the given event detail.
+   * @param {Object} detail - The event detail to get the ID from.
+   * @returns {string} - The ID of the server.
+   * @private
+   */
+  #getServerId(detail) {
+    return detail.payload.id
   }
 }

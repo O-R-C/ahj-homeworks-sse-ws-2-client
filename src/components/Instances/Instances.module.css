@@ -6,23 +6,21 @@
 }
 
 .processing {
+  position: relative;
   pointer-events: none;
 }
 
 .processing::after {
-  content: 'Processing...';
   position: absolute;
-  /* top: 5px; */
-  left: 5px;
+  content: '';
+  display: block;
+  top: calc(50% - 5px);
   right: 5px;
-  bottom: 5px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(255, 255, 255, 1);
-  font-size: 20px;
-  font-weight: bold;
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  background: rgba(249, 207, 0, 1);
 }
 
 .btn-add-instance {
