@@ -143,6 +143,7 @@ export default class Instances {
    */
   #handleCREATED = (e) => {
     this.#ui.addInstance(e.detail.payload)
+    this.#ui.hideProcessing()
   }
 
   #getInstanceId(btn) {
